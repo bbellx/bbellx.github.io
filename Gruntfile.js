@@ -111,9 +111,5 @@ module.exports = function(grunt) {
         ['lintScripts']
     );
 
-    grunt.registerTask('test', 'Execute tests.',
-        []
-    );
-
     grunt.loadNpmTasks('grunt-contrib-watch');
 };
