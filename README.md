@@ -1,4 +1,6 @@
-# BRIANBELL.me
+# brianbell.me
+
+>Personal site of Brian Bell
 
 ## Installation
 
@@ -50,6 +52,7 @@ A baseline set of Grunt build tasks are included which will work for most projec
 3. This will scan the file `package.json` and download each plugin into the directory `node_modules`.
 
 ### Step Four - Add bower libraries
+
 Add 3rd-party libraries to your project using bower.
 
 1. (Optional) Add a new line for each third-party library you want to `bower.json` in the project root
@@ -87,6 +90,24 @@ _Use this method only when developing locally, do not use this method on shared 
         grunt watch
 
 2. A persistent file watcher will run. This automatically does a new Grunt build every time it detects a change to a file in `/src` (markup, stylesheets, scripts, etc.)
+
+### Step Six - Deployment
+
+This site is deployed to bbellx.github.io
+
+1. Switch to the `develop` branch:
+
+        git checkout develop
+
+2. Run a production build using:
+
+        grunt --prod
+
+3. Run the following command to create a subtree of the `web` build directory and push the contents of that folder to the `master` branch on bbellx.github.io:
+
+        git push origin `git subtree split --prefix web master`:master --force
+
+4. Verify a successful deployment by visiting [github](https://github.com/bbellx/bbellx.github.io) and selecting the master branch.
 
 
 ## Documentation
