@@ -105,9 +105,18 @@ This site is deployed to bbellx.github.io
 
 3. Run the following command to create a subtree of the `web` build directory and push the contents of that folder to the `master` branch on bbellx.github.io:
 
-        git push origin `git subtree split --prefix web master`:master --force
+        git push origin `git subtree split --prefix web master`:master // optionally add `--force` to this command
 
-4. Verify a successful deployment by visiting [github](https://github.com/bbellx/bbellx.github.io) and selecting the master branch.
+4. Switch to the `master` branch:
+
+        git checkout master
+
+5. Verify that the contents of `/web/` have been pushed to the `master` branch
+6. Push the `master` branch to bbellx.github.io:
+
+        git push origin master
+
+7. Verify a successful deployment by visiting [github](https://github.com/bbellx/bbellx.github.io) and selecting the master branch.
 
 
 ## Documentation
