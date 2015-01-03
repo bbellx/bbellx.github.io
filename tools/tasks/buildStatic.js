@@ -12,7 +12,8 @@ module.exports = function(grunt) {
                         '**/.htaccess',
                         '**/*.{asp,aspx,cshtml,jsp,php,py,rb,txt}',
                         'assets/media/**',
-                        '!assets/vendor/**'
+                        '!assets/vendor/**',
+                        'CNAME'
                     ],
                     dest: '<%= env.DIR_DEST %>'
                 }]
