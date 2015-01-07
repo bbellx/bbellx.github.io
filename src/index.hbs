@@ -1,7 +1,12 @@
+---
+title: yo!
+---
+
 {{#extend "layout"}}
 
-    {{#append "body"}}
-        brianbell.me
-    {{/append}}
+    {{#content "body" mode="append"}}
+        {{file.frontMatter.title}}
+
+    {{/content}}
 
 {{/extend}}

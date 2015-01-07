@@ -99,24 +99,17 @@ This site is deployed to bbellx.github.io
 
         git checkout develop
 
-2. Run a production build using:
+2. Commit all modified code. The working directory must be clean.
+
+3. Run a production build using:
 
         grunt --prod
 
-3. Run the following command to create a subtree of the `web` build directory and push the contents of that folder to the `master` branch on bbellx.github.io:
+4. Run the following deploy script:
 
-        git push origin `git subtree split --prefix web master`:master // optionally add `--force` to this command
+        ./deploy.sh
 
-4. Switch to the `master` branch:
-
-        git checkout master
-
-5. Verify that the contents of `/web/` have been pushed to the `master` branch
-6. Push the `master` branch to bbellx.github.io:
-
-        git push origin master
-
-7. Verify a successful deployment by visiting [github](https://github.com/bbellx/bbellx.github.io) and selecting the master branch.
+5. Verify a successful deployment by visiting [github](https://github.com/bbellx/bbellx.github.io) and selecting the master branch.
 
 
 ## Documentation

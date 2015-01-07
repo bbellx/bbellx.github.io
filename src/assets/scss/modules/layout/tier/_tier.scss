@@ -1,0 +1,13 @@
+.tier:before,
+.tier:after {
+   content: " ";
+   display: table;
+}
+
+.tier:after {
+    clear: both;
+}
+
+.tier_primary {
+    background-color: #E47920;
+}

@@ -9,10 +9,10 @@
  * the file should then be made to setup production, staging, and sandboxes as
  * needed.
  *
- * @class Config
+ * @class SITE_CONFIG
  * @static
  */
-var Config = {
+var SITE_CONFIG = {
     /**
      * The canonical address of the website. No trailing slash. Protocol may be
      * omitted (http://www.paulirish.com/2010/the-protocol-relative-url/).
@@ -20,8 +20,7 @@ var Config = {
      * @property URL_SITE
      * @type String
      */
-    URL_SITE: '//www.example.com',       // protocol-relative address
-//  URL_SITE: 'https://www.example.com', // absolute address
+    URL_SITE: '//brianbell.me', // protocol-relative address
 
     /**
      * The base path of the website. Trailing slashes should be included for any
@@ -30,10 +29,7 @@ var Config = {
      * @property URL_BASE
      * @type String
      */
-    URL_BASE: '',                       // page-relative base path
-//  URL_BASE: '/',                      // root-relative base path
-//  URL_BASE: '/foo/bar/',              // root-directory-relative base path
-//  URL_BASE: '//www.example.com/foo/', // absolute base path
+    URL_BASE: '', // page-relative base path
 
     /**
      * Path where Node.js modules are installed. No traling slash.
@@ -95,4 +91,4 @@ var Config = {
     UNSAFE_MODE: false
 };
 
-module.exports = Config;
+module.exports = SITE_CONFIG;

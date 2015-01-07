@@ -5,13 +5,13 @@ module.exports = function(grunt) {
     var shouldMinify = !grunt.option('dev');
 
     grunt.config.merge({
-        hbt: {
+        hb: {
             buildMarkup: {
                 options: {
-                    data: {
-                        pkg: '<%= pkg %>',
-                        env: '<%= env %>'
-                    },
+                    data: [
+                        './package.json',
+                        './build-env'
+                    ],
                     helpers: [
                         '<%= env.DIR_NPM %>/handlebars-layouts/index.js'
                     ],
@@ -64,12 +64,12 @@ module.exports = function(grunt) {
     grunt.registerTask('buildMarkup',
         shouldMinify
             ? [
-                'hbt:buildMarkup',
+                'hb:buildMarkup',
                 'prettify:buildMarkup',
                 'usemin'
             ]
             : [
-                'hbt:buildMarkup',
+                'hb:buildMarkup',
                 'prettify:buildMarkup'
             ]
     );
