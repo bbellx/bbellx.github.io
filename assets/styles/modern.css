@@ -74,3 +74,17 @@ textarea {
 ::-moz-focus-inner {
   border: 0;
   padding: 0; }
+
+.tier:before, .tier:after {
+  content: " ";
+  display: table; }
+
+.tier:after {
+  clear: both; }
+
+.tier_primary {
+  background-color: #E47920; }
+
+.wrapper {
+  max-width: 980px;
+  margin: 0 auto; }
