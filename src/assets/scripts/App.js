@@ -1,7 +1,7 @@
 define(function(require, exports, module) { // jshint ignore:line
     'use strict';
-    
-    var Modernizr = require('modernizr');
+
+    // var $ = require('jquery');
     var AutoReplace = require('nerdery-auto-replace');
     var ExternalLinks = require('nerdery-external-links');
 

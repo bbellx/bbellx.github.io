@@ -1,6 +1,6 @@
 {{#block "scripts"}}
-    <script src="{{ SITE_CONFIG.URL_BASE }}assets/vendor/requirejs/require.js"></script>
-    <script src="{{ SITE_CONFIG.URL_BASE }}assets/scripts/config.js"></script>
+    <script src="{{ URL_BASE }}assets/vendor/requirejs/require.js"></script>
+    <script src="{{ URL_BASE }}assets/scripts/config.js"></script>
     <script>
         /**
          * Global constants
@@ -59,7 +59,7 @@
          * @type String
          * @final
          */
-        SETTINGS.SCRIPT_PATH = '{{ SITE_CONFIG.URL_BASE }}assets/scripts/';
+        SETTINGS.SCRIPT_PATH = '{{ URL_BASE }}assets/scripts/';
 
         /**
          * Set any RequireJs configuration that is dependent on dynamic

@@ -9,8 +9,9 @@ module.exports = function(grunt) {
             buildMarkup: {
                 options: {
                     data: [
+                        './build-env.js',
                         './package.json',
-                        './build-env'
+                        '<%= env.DIR_SRC %>/assets/data/**/*.{json,js}'
                     ],
                     helpers: [
                         '<%= env.DIR_NPM %>/handlebars-layouts/index.js'

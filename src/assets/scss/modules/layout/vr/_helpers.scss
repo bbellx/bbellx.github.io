@@ -1,0 +1,65 @@
+// ---------------------------------------------------------------------
+// Vertical Rhythm
+//
+// $vr-TARGET and $vr-CONTEXT convert pixels into a percentage during
+// the vertical rhythm spacing calculation.
+//
+// If $vr-TARGET == $vr-CONTEXT
+// the spacing magnitude will only be affected by $vr-MULTIPLIER.
+//
+// If $vr-TARGET > $vr-CONTEXT and $vr-MULTIPLIER >= 1
+// the spacing magnitude will grow as the iterations are genereated.
+//
+// If $vr-TARGET < $vr-CONTEXT and $vr-MULTIPLIER <= 1
+// the spacing magnitude will shrink as the iterations are generated.
+//
+// $vr-MULTIPLIER
+// The multiplier used to generate the magnitude of vertical spacing
+// If value > 1, spacing iterations are expanded
+// If value = 1, spacing iterations are consistent
+// If value < 1, spacing iterations are compressed
+// ---------------------------------------------------------------------
+
+$vr-TARGET: 0px !default; // Target pixel value (pixels)
+$vr-CONTEXT: 0px !default; // Contextual pixel value (pixels)
+$vr-MULTIPLIER: 1 !default; // (unitless)
+$vr-ITERATIONS: 1 !default; // Number of variations to generate (unitless)
+
+// @return {Integer} converted to % units
+@function vr($t: $vr-TARGET, $c: $vr-CONTEXT) {
+    @if unitless($t) {
+        @warn "$vr-TARGET: #{$vr-TARGET}; must be defined in pixels.";
+        @return 0;
+    }
+
+    @if unitless($c) {
+        @warn "$vr-CONTEXT: #{$vr-CONTEXT}; must be defined in pixels.";
+        @return 0;
+    }
+
+    @if $vr-MULTIPLIER == null {
+        @warn "$vr-MULTIPLIER must be a non-negative number.";
+        @return 0;
+    }
+
+    @if $t != 0 and $c != 0 {
+        @return (($t * $vr-MULTIPLIER) / $c) + 0%;
+    } @else {
+        @return 0;
+    }
+}
+
+// The following classes can be re-generated across breakpoints.
+// This allows for a different magnitude of vertical space at certain viewport widths.
+.vr {
+    margin-bottom: vr();
+}
+
+// Generate vertical rhythm extensions
+@if $vr-ITERATIONS > 1 {
+    @for $i from 2 through $vr-ITERATIONS {
+        .vr_#{$i}n {
+            margin-bottom: vr($vr-TARGET * $i);
+        }
+    }
+}

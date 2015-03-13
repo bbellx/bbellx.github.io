@@ -3,5 +3,14 @@
 ------------------------------------------------------------------------ */
 @import "base/_reset";
 @import "base/_elements";
-@import "modules/layout/tier/_tier";
-@import "modules/container/wrapper/_wrapper";
+@import "_helpers";
+
+// Load the base stylesheet inside a media query to prevent IE8 and below from loading these styles.
+// IE8 and below receives an unstyled, single-column version of the site.
+@media #{$BREAKPOINTS_BASE_MEDIA} {
+    @import "_screen";
+}
+
+@media #{$BREAKPOINTS_MEDIUM_MEDIA} {
+    @import "_screen_md";
+}

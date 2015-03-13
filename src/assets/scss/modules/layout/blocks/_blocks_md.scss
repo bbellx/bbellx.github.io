@@ -1,0 +1,26 @@
+// Blocks Configuration Variables
+// Defaults and documentation defined in _helpers.scss
+$blocks-WIDTH: $BREAKPOINTS_MEDIUM_WIDTH;
+$blocks-GUTTER_WIDTH: 20;
+$blocks-ITERATIONS: 2, 3;
+
+// Import calculation and function helpers
+@import "_helpers";
+
+.blocks {
+    margin-left: get-parent-offset($blocks-GUTTER);
+}
+
+.blocks > * {
+    margin-left: $blocks-GUTTER;
+}
+
+@if $blocks-ITERATIONS {
+    @for $i from 1 through length($blocks-ITERATIONS) {
+        // Select an item by index from the iterations list
+        $n: nth($blocks-ITERATIONS, $i);
+        .mix-blocks_#{$n}upMD > * {
+            @include blocks($n, $blocks-GUTTER);
+        }
+    }
+}

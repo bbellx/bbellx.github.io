@@ -1,0 +1,27 @@
+// ---------------------------------------------------------------------
+// Blocks Helpers
+// ---------------------------------------------------------------------
+
+// Blocks Configuration Variables
+$blocks-WIDTH: 320 !default; // Viewport width for this breakpoint in pixels (unitless)
+$blocks-GUTTER_WIDTH: 14 !default; // Gutter width in pixels (unitless)
+// A SASS list of blocks variations to create (number of blocks in each row)
+// If none, set this to "null"
+$blocks-ITERATIONS: null !default;
+$blocks-GUTTER: 0 !default;
+
+// Blocks Calculations
+@if unitless($blocks-GUTTER_WIDTH) and ($blocks-GUTTER_WIDTH > 0) {
+    $blocks-GUTTER: percentage($blocks-GUTTER_WIDTH / $blocks-WIDTH);
+} @else {
+    @warn "The value for variable $blocks-GUTTER_WIDTH must be unitless and/or not negative. Setting to 0 instead.";
+    $blocks-GUTTER: 0;
+}
+
+// Blocks generator
+//
+// @param {Integer} $n number of blocks
+// @param {Integer} $g gutter width (passed in as a percentage)
+@mixin blocks($n, $g) {
+    width: (100% - ($n * $g)) / $n;
+}

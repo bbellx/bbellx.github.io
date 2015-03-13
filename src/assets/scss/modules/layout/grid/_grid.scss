@@ -1,0 +1,23 @@
+@import "_helpers";
+
+.grid {
+    margin-left: get-parent-offset($grid-GUTTER);
+    @include clearfix();
+}
+
+.grid-col {
+    float: left;
+    width: column-width($grid-COLS);
+    margin-left: $grid-GUTTER;
+    box-sizing: border-box;
+    position: relative;
+}
+
+// Generate grid columns
+@if $grid-COLS > 1 {
+    @for $i from 1 through $grid-COLS {
+        .grid-col_#{$i}of#{$grid-COLS} {
+            width: column-width($i);
+        }
+    }
+}

@@ -1,0 +1,30 @@
+.media:before,
+.media:after {
+   content: " ";
+   display: table;
+}
+
+.media:after {
+    clear: both;
+}
+
+.media {
+
+}
+
+.media-md {
+    float: left;
+}
+
+.media-md > img {
+    display: block;
+}
+
+.media-bd {
+    overflow: hidden; // Establishes a new block formatting context
+}
+
+/* Additional media object layout options */
+.media_inverse > .media-md {
+    float: right;
+}

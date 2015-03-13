@@ -1,0 +1,34 @@
+// ---------------------------------------------------------------------
+// Grid Helpers
+// ---------------------------------------------------------------------
+
+// Grid Configuration Variables
+$grid-WIDTH: 320 !default; // Default viewport width in pixels (unitless)
+$grid-GUTTER_WIDTH: 0 !default; // Gutter width in pixels (unitless)
+$grid-COLS: 1 !default; // Total number of desired columns (unitless)
+$grid-GUTTER: 0 !default;
+$grid-COL: 100% !default;
+
+// Grid Calculations
+@if unitless($grid-WIDTH) and unitless($grid-GUTTER_WIDTH) and unitless($grid-COLS) {
+    $grid-GUTTER: percentage($grid-GUTTER_WIDTH / ($grid-WIDTH + $grid-GUTTER_WIDTH));
+    $grid-COL: (100% - ($grid-GUTTER * $grid-COLS)) / $grid-COLS;
+    @if $grid-GUTTER == 0% {
+        $grid-GUTTER: 0;
+    }
+} @else {
+    // If invalid values are assigned, return the default calculations.
+    @warn "$grid-WIDTH, $grid-GUTTER_WIDTH, $grid-COLS all must be unitless, non-negative numbers.";
+    $grid-COLS: 1; // Fallback
+    $grid-GUTTER: 0; // Fallback
+    $grid-COL: 100%; // Fallback
+}
+
+// Column width
+//
+// @param {Integer} $n
+// @return {Integer}
+@function column-width($n) {
+    $n: strip-units($n);
+    @return ($n * $grid-COL) + (($n - 1) * $grid-GUTTER);
+}

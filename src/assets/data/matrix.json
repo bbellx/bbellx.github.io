@@ -1,0 +1,36 @@
+{
+    "matrix": {
+        "Debugging Techniques": {
+            "se": {
+                "options": {
+                    "color": "rgba(63, 153, 255, 0.5)",
+                    "shade": "9%"
+                },
+                "levels": {
+                    "1": {
+                        "content": "'Uses basic debugging techniques with easily accessible tools. Needs guidance to identify focused area of investigation.'"
+                    },
+                    "2": {
+                        "content": "'Uses tools during development to identify likely issues. Identifies promising areas for focused investigation.'"
+                    },
+                    "3": {
+                        "content": "'Uses scientific method in existing codebase to identify and solve issues. Can articulate a hypothesis of the issue.'"
+                    },
+                    "4": {
+                        "content": "'Uses advanced debugging techniques to analyze code during debugging. Can create a reduced test case to identify issues. Understands and uses tools to prevent new issues.'"
+                    }
+                }
+            },
+            "sse": {
+                "levels": 4,
+                "color": "rgba(255, 88, 237, 0.5)",
+                "shade": "9%"
+            },
+            "pse": {
+                "levels": 4,
+                "color": "rgba(255, 245, 93, 0.5)",
+                "shade": "9%"
+            }
+        }
+    }
+}

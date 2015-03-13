@@ -36,14 +36,13 @@ require.config({
     paths: {
         requirejs: '../vendor/requirejs/require',
         jquery: '../vendor/jquery/jquery',
-        modernizr: '../vendor/modernizr/modernizr',
         'nerdery-auto-replace': '../vendor/nerdery-auto-replace/index',
         'nerdery-external-links': '../vendor/nerdery-external-links/index',
         'nerdery-function-bind': '../vendor/nerdery-function-bind/index'
     },
     shim: {
-        modernizr: {
-            exports: 'Modernizr'
+        jquery: {
+            exports: '$'
         }
     },
     waitSeconds: 120

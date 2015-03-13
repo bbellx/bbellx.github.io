@@ -1,0 +1,70 @@
+// Allows for nested fetching of values based on a series of $KEYS
+// Similar to map-get, but supports nested maps
+@function map-fetch($MAP, $KEYS...) {
+    $VALUE: $MAP;
+    @each $KEY in $KEYS {
+        $VALUE: map-get($VALUE, $KEY);
+    }
+    @return $VALUE;
+}
+
+// Clearfix
+//
+// Micro clearfix. No support below IE8 because of display: table;
+// http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+// Strip units
+//
+// @param {String} $number Any number with units
+// @return {Integer} $number without the units
+@function strip-units($number) {
+    @return $number / ($number * 0 + 1);
+}
+
+// Get parent container offset
+//
+// When dealing with percentage-based fluid containers and children,
+// the parent offset is not simply the gutter of the children set as
+// a negative margin on the parent. Because the width of the child
+// elements plus the total number of gutters determine the total width
+// of the parent object, a calculation must be made to derive the same
+// offset for the parent and children.
+//
+// ((Parent * gutter) / (Parent - gutter)) * -1
+// @param {Integer} $g Desired gutter width, passed in as a percentage
+@function get-parent-offset($g) {
+    @if $g <= 0 {
+        @return 0;
+    } @else {
+        @return ((100% * $g) / (100% - $g)) * -1;
+    }
+}
+
+// Visually Hidden
+//
+// The use of this mixin or class will visually hide the content from view, while keeping the content accessible within the DOM. This utility can be used to provide contextual information to screenreaders while maintaining a certain design preference.
+@mixin isVisuallyHidden() {
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    position: absolute;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.isVisuallyHidden {
+    @include isVisuallyHidden();
+}

@@ -1,0 +1,30 @@
+// $MATRIX: map-get($sharedConfig, "matrix");
+// $SKILLS: map-keys($MATRIX);
+
+.matrix {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    color: #222222;
+}
+
+.matrix + .matrix {
+    margin-left: 5px;
+}
+
+// @for $i from 1 through length($MATRIX) {
+//     $_SKILL: map-fetch($MATRIX, $i);
+//     $_TITLES: map-keys($_SKILL);
+//     $_TITLE: nth($_TITLES, $i);
+//     $_OPTIONS: map-get($_SKILL, "options");
+//     $_LEVELS: map-get($_SKILL, "levels");
+//     $_COLOR: map-fetch($_OPTIONS, "color");
+//     $_SHADE: map-fetch($_OPTIONS, "shade");
+
+//     @for $j from 1 through length($_LEVELS) {
+//         .matrix_#{$_TITLE}#{$j} {
+//             background-color: darken($_COLOR, $_SHADE * $j);
+//         }
+//     }
+// }

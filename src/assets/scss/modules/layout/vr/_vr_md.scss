@@ -1,0 +1,8 @@
+// Vertical Rhythm Configuration Variables
+// Defaults and documentation defined in _helpers.scss
+$vr-TARGET: 16px; // (pixels)
+$vr-CONTEXT: $FONT_SIZE_DEFAULT; // (pixels)
+$vr-MULTIPLIER: 1.2;
+$vr-ITERATIONS: 6;
+
+@import "_helpers";

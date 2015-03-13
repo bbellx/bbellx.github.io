@@ -1,0 +1,27 @@
+// Grid Configuration Variables
+// Defaults and documentation defined in _helpers.scss
+$grid-WIDTH: $BREAKPOINTS_MEDIUM_WIDTH;
+$grid-GUTTER_WIDTH: 20;
+$grid-COLS: 12;
+
+@import "_helpers";
+
+.grid {
+    margin-left: get-parent-offset($grid-GUTTER);
+}
+
+// left, width, and margin properties are reset at every breakpoint to quarantine breakpoint specific styles at target sizes
+.grid-col {
+    width: column-width($grid-COLS);
+    margin-left: $grid-GUTTER;
+    left: auto;
+}
+
+// Generate grid columns
+@if $grid-COLS > 1 {
+    @for $i from 1 through $grid-COLS {
+        .mix-grid-col_#{$i}of#{$grid-COLS}MD {
+            width: column-width($i);
+        }
+    }
+}

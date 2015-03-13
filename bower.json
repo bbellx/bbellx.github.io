@@ -6,7 +6,7 @@
     "nerdery-reset-css": "./tools/cache/nerdery-reset-css",
     "requirejs": "2.1.9",
     "jquery": "components/jquery#1.11.0",
-    "modernizr": "components/modernizr#2.6.2",
+    "modernizr": "components/modernizr#2.8.3",
     "nerdery-auto-replace": "./tools/cache/nerdery-auto-replace",
     "nerdery-external-links": "./tools/cache/nerdery-external-links",
     "nerdery-function-bind": "./tools/cache/nerdery-function-bind"

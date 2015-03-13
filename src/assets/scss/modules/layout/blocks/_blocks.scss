@@ -1,0 +1,30 @@
+// Blocks Configuration Variables
+// Defaults and documentation defined in _helpers.scss
+$blocks-GUTTER_WIDTH: 14;
+$blocks-ITERATIONS: 2, 3;
+
+// Import calculation and function helpers
+@import "_helpers";
+
+.blocks {
+    font-size: 0; // Remove whitespace between inline-block children
+    margin-left: get-parent-offset($blocks-GUTTER);
+}
+
+.blocks > * {
+    display: inline-block;
+    vertical-align: top;
+    @include blocks(1, $blocks-GUTTER);
+    margin-left: $blocks-GUTTER;
+    font-size: $FONT_SIZE_DEFAULT;
+}
+
+@if $blocks-ITERATIONS {
+    @for $i from 1 through length($blocks-ITERATIONS) {
+        // Select an item by index from the iterations list
+        $n: nth($blocks-ITERATIONS, $i);
+        .blocks_#{$n}up > * {
+            @include blocks($n, $blocks-GUTTER);
+        }
+    }
+}

@@ -10,5 +10,3 @@ node_modules/
 npm-debug.log
 tools/node/
 web/
-src/assets/scss/helpers/_sharedConfig.scss
-src/assets/scripts/sharedConfig.js
