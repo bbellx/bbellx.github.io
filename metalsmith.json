@@ -1,0 +1,17 @@
+{
+    "metadata": {
+        "title": "Blog",
+        "description": "The description"
+    },
+    "plugins": {
+        "metalsmith-markdown": {
+
+        },
+        "metalsmith-permalinks": {
+            "pattern": ":title"
+        },
+        "metalsmith-templates": {
+            "engine": "handlebars"
+        }
+    }
+}
