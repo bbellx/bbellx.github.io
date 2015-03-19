@@ -12,9 +12,9 @@ This site is deployed to bbellx.github.io
 
 2. Commit all modified code. The working directory must be clean.
 
-3. Run a production build using:
+3. Run a build using:
 
-        grunt --prod
+        make build
 
 4. Run the following deploy script:
 

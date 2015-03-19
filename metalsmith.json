@@ -4,14 +4,48 @@
         "description": "The description"
     },
     "plugins": {
-        "metalsmith-markdown": {
-
-        },
+        "metalsmith-clean": {},
+        "metalsmith-drafts": true,
         "metalsmith-permalinks": {
-            "pattern": ":title"
+            "pattern": ":date/:title",
+            "date": "YYYY"
+        },
+        "metalsmith-markdown": {
+            "smartypants": true,
+            "gfm": true,
+            "tables": true
         },
         "metalsmith-templates": {
-            "engine": "handlebars"
-        }
+            "engine": "handlebars",
+            "directory": "./templates",
+            "partials": {
+                "head-meta": "meta/head-meta",
+                "head-seo": "meta/head-seo",
+                "head-icons": "meta/head-icons",
+                "head-polyfills": "meta/head-polyfills",
+                "head-stylesheets": "meta/head-stylesheets",
+                "header": "partials/header",
+                "footer": "partials/footer",
+                "scripts": "partials/scripts"
+            }
+        },
+        "metalsmith-collections": {
+            "posts": {
+                "sortBy": "date",
+                "reverse": true,
+                "metadata": {
+                    "name": "Posts",
+                    "description": ""
+                }
+            }
+        },
+        "metalsmith-sass": {
+            "includePaths": [
+                "./src/assets/scss/"
+            ],
+            "outputStyle": "compressed",
+            "outputDir": "assets/styles/"
+        },
+        "metalsmith-autoprefixer": {}
     }
 }

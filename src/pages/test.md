@@ -1,3 +1,0 @@
-# My Title
-
->Description text

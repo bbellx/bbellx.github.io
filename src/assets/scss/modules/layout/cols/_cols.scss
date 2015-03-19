@@ -1,12 +1,8 @@
 .cols {
-    -webkit-column-count: 1;
-    -moz-column-count: 1;
     column-count: 1;
 }
 
 .cols-item {
-    -webkit-column-break-inside: avoid;
-    -moz-column-break-inside: avoid;
     page-break-inside: avoid;
     column-break-inside: avoid;
 }

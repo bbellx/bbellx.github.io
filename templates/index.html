@@ -1,11 +1,11 @@
 <!doctype html>
 <html class="no-js" lang="en-us">
 <head>
-    {{> meta/head-meta}}
-    {{> meta/head-seo}}
-    {{> meta/head-icons}}
-    {{> meta/head-polyfills}}
-    {{> meta/head-stylesheets}}
+    {{> head-meta}}
+    {{> head-seo}}
+    {{> head-icons}}
+    {{> head-polyfills}}
+    {{> head-stylesheets}}
 </head>
 <body>
     <header class="tier tier_primary vr vr_3n" role="banner">
@@ -13,8 +13,7 @@
     </header>
 
     <main role="main">
-        {{#block "body"}}
-        {{/block}}
+        {{{ contents }}}
     </main>
 
     <footer role="contentinfo">
