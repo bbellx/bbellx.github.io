@@ -1,25 +1,30 @@
-<!doctype html>
-<html class="no-js" lang="en-us">
-<head>
-    {{> head-meta}}
-    {{> head-seo}}
-    {{> head-icons}}
-    {{> head-polyfills}}
-    {{> head-stylesheets}}
-</head>
-<body>
-    <header class="tier tier_primary vr vr_3n" role="banner">
-        {{> header}}
-    </header>
+{{> header}}
 
-    <main role="main">
-        {{{ contents }}}
-    </main>
+<div class="wrapper">
+    <section class="content">
+        <ol class="cols">
+            {{#each collections.posts}}
+                <li class="cols-item">
+                    <div class="post post_snippet">
+                        <div class="post-md">
+                            <img src="{{this.featured-image}}" alt="">
+                        </div>
+                        <div class="post-bd">
+                            <div class="post-bd-title">
+                                <a href="/{{this.path}}/"><h2 class="hdg hdg_h2">{{this.title}}</h2></a>
+                            </div>
+                            <div class="post-bd-meta">
+                                <time datetime="2011-01-12">{{this.date}}</time>
+                            </div>
+                            <div class="post-bd-content">
+                                {{{this.snippet}}}
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            {{/each}}
+        </ol>
+    </section>
+</div>
 
-    <footer role="contentinfo">
-        {{> footer}}
-    </footer>
-
-    {{> scripts}}
-</body>
-</html>
+{{> footer}}

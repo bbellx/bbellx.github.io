@@ -1,25 +1,9 @@
-<!doctype html>
-<html class="no-js" lang="en-us">
-<head>
-    {{> head-meta}}
-    {{> head-seo}}
-    {{> head-icons}}
-    {{> head-polyfills}}
-    {{> head-stylesheets}}
-</head>
-<body>
-    <header class="tier tier_primary vr vr_3n" role="banner">
-        {{> header}}
-    </header>
+{{> header}}
 
-    <main role="main">
+<div class="wrapper">
+    <section class="content">
         {{{ contents }}}
-    </main>
+    </section>
+</div>
 
-    <footer role="contentinfo">
-        {{> footer}}
-    </footer>
-
-    {{> scripts}}
-</body>
-</html>
+{{> footer}}

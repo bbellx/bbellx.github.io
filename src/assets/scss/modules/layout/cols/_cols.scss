@@ -3,6 +3,8 @@
 }
 
 .cols-item {
-    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    page-break-inside: avoid; /* FF */
     column-break-inside: avoid;
 }

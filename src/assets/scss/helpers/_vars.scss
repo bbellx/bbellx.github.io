@@ -1,6 +1,8 @@
 // Breakpoint variables
-$BREAKPOINTS_MEDIUM_MEDIA: "screen and (min-width: 600px)";
-$BREAKPOINTS_MEDIUM_WIDTH: 600;
+$BREAKPOINTS_MEDIUM_MEDIA: "screen and (min-width: 750px)";
+$BREAKPOINTS_MEDIUM_WIDTH: 750;
+$BREAKPOINTS_SMALL_MEDIA: "screen and (min-width: 510px)";
+$BREAKPOINTS_SMALL_WIDTH: 510;
 $BREAKPOINTS_BASE_MEDIA: "screen and (min-width: 1em)";
 
 // Font variables

@@ -11,6 +11,10 @@
     @import "_screen";
 }
 
+@media #{$BREAKPOINTS_SMALL_MEDIA} {
+    @import "_screen_sm";
+}
+
 @media #{$BREAKPOINTS_MEDIUM_MEDIA} {
     @import "_screen_md";
 }
