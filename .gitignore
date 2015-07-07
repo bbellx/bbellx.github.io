@@ -3,10 +3,6 @@
 ._.DS_Store
 .idea/*
 .tmp/
-docs/
-build-reports/
-build-env.js
 node_modules/
 npm-debug.log
-tools/node/
-web/
+build/

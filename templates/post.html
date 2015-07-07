@@ -1,0 +1,26 @@
+{{> header}}
+
+<div class="wrapper">
+    <section class="content">
+        <article class="post">
+            {{#if this.featured-image}}
+                <div class="post-md">
+                    <img src="{{ this.featured-image }}" alt="{{ this.featured-image-alt }}" />
+                </div>
+            {{/if}}
+            <div class="post-hd">
+                <h1 class="hdg hdg_h1">{{ this.title }}</h1>
+            </div>
+            <div class="post-meta">
+                <time datetime="2011-01-12">{{ formatDisplayDate this.date }}</time>
+            </div>
+            <div class="post-bd">
+                <div class="quarantine">
+                    {{{ contents }}}
+                </div>
+            </div>
+        </article>
+    </section>
+</div>
+
+{{> footer}}

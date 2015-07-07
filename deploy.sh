@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -o errexit #abort if any command fails
 
-deploy_directory=web
+deploy_directory=build
 deploy_branch=master
 
 #if no user identity is already set in the current git environment, use this:
