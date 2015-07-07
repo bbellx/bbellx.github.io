@@ -3,6 +3,7 @@
 ------------------------------------------------------------------------ */
 @import "base/_reset";
 @import "base/_elements";
+@import "base/_hljs";
 @import "_helpers";
 
 // Load the base stylesheet inside a media query to prevent IE8 and below from loading these styles.
@@ -17,4 +18,8 @@
 
 @media #{$BREAKPOINTS_MEDIUM_MEDIA} {
     @import "_screen_md";
+}
+
+@media #{$BREAKPOINTS_LARGE_MEDIA} {
+    @import "_screen_lg";
 }

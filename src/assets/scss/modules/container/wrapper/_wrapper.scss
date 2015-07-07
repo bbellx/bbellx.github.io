@@ -1,4 +1,4 @@
 .wrapper {
-    max-width: 1000px;
+    max-width: #{$BREAKPOINTS_LARGE_WIDTH}px;
     margin: 0 auto;
 }

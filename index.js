@@ -9,6 +9,23 @@ var sass = require('metalsmith-sass');
 var autoprefixer = require('metalsmith-autoprefixer');
 var concat = require('metalsmith-concat');
 var uglify = require('metalsmith-uglify');
+var Handlebars = require('handlebars');
+var Swag = require('swag');
+var moment = require('moment');
+var metallic = require('metalsmith-metallic');
+
+// --------------------------------------
+// Handlebars
+// --------------------------------------
+
+Swag.registerHelpers(Handlebars);
+
+// date formatting helper that formats dates consistently using moment.js
+// usage: {{ formatDisplayDate date }}
+Handlebars.registerHelper('formatDisplayDate', function(date) {
+    'use strict';
+    return moment(date).format('MMM Do YYYY');
+});
 
 Metalsmith(__dirname) //jshint ignore:line
     .use(clean())
@@ -24,6 +41,7 @@ Metalsmith(__dirname) //jshint ignore:line
             }
         }
     }))
+    .use(metallic())
     .use(markdown({
         'smartypants': true,
         'gfm': true,

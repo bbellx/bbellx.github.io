@@ -9,16 +9,24 @@ $blocks-ITERATIONS: 2, 3;
 
 .blocks {
     margin-left: get-parent-offset($blocks-GUTTER);
+    margin-top: get-parent-offset($blocks-GUTTER);
 }
 
 .blocks > * {
     margin-left: $blocks-GUTTER;
+    margin-top: $blocks-GUTTER;
 }
 
 @if $blocks-ITERATIONS {
     @for $i from 1 through length($blocks-ITERATIONS) {
+
         // Select an item by index from the iterations list
         $n: nth($blocks-ITERATIONS, $i);
+
+        .blocks_#{$n}up > * {
+            @include blocks($n, $blocks-GUTTER);
+        }
+
         .mix-blocks_#{$n}upMD > * {
             @include blocks($n, $blocks-GUTTER);
         }
