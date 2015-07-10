@@ -8,7 +8,11 @@ seo-title: Responsive Blocks Built with Sass
 seo-description:
 
 snippet: Generate a responsive "blocks" object using Sass.
-featured-image: //placehold.it/1000x400
+
+image-featured: /assets/media/images/responsive-blocks-2000x800.gif
+image-featured-alt: Responsive Sass blocks generator
+
+image-snippet: /assets/media/images/responsive-blocks-640x320.gif
 ---
 
 Generate a responsive `.blocks` object using Sass. Optionally generate mixins to change the layout at different breakpoints.
@@ -52,18 +56,20 @@ The markup is a simple list. Include the base object `blocks`, then add an exten
 
 Use whatever folder structure you want. The example follows this structure:
 
-```scss
+```
 // The folder structure
 
 └── blocks
-   ├── _blocks.scss
-   ├── _blocks_md.scss
-   └── _helpers.scss
+    ├── _blocks.scss
+    ├── _blocks_md.scss
+    └── _helpers.scss
 ```
 
 ## The Sass
 
 Start with the `_helpers.scss` file:
+
+### Object Helpers
 
 ```scss
 // ---------------------------------------------------------------------
@@ -125,6 +131,8 @@ $blocks-GUTTER: 0 !default;
 }
 ```
 
+### Define Base Object
+
 Next, import the `_helpers.scss` file into your object file, `_blocks.scss`. Make sure to override any of the configuration variables above the `@import`:
 
 ```scss
@@ -165,6 +173,8 @@ $blocks-ITERATIONS: 2, 3;
     }
 }
 ```
+
+### Extend the Object
 
 Optionally, extend this object across breakpoints to adjust the layout at each viewport by resetting the variables and generating mixins. For example, load `_blocks_md.scss` using a media query at your medium breakpoint.
 
