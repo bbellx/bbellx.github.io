@@ -1,17 +1,10 @@
 ---
 title: Responsive Blocks Built with Sass
 collection: posts
-date: 2015-07-02
+date: 2015-08-25
 template: post.html
-
-seo-title: Responsive Blocks Built with Sass
-seo-description:
-
+seo-description: Generate a responsive "blocks" object using Sass.
 snippet: Generate a responsive "blocks" object using Sass.
-
-image-featured: /assets/media/images/responsive-blocks-2000x800.gif
-image-featured-alt: Responsive Sass blocks generator
-
 image-snippet: /assets/media/images/responsive-blocks-640x320.gif
 ---
 
