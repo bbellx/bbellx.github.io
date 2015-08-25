@@ -1,9 +1,0 @@
-{
-  "name": "brianbell.me",
-  "version": "1.0.0",
-  "private": true,
-  "dependencies": {
-    "jquery": "components/jquery#1.11.0",
-    "modernizr": "components/modernizr#2.8.3"
-  }
-}

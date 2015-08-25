@@ -28,6 +28,8 @@ Handlebars.registerHelper('formatDisplayDate', function(date) {
 });
 
 Metalsmith(__dirname) //jshint ignore:line
+    .source('./src')
+    .destination('./build')
     .use(clean())
     .use(drafts(true))
     .use(collections({
@@ -68,7 +70,7 @@ Metalsmith(__dirname) //jshint ignore:line
     }))
     .use(sass({
         'includePaths': [
-            './src/assets/scss/'
+            'assets/styles/'
         ],
         'outputStyle': 'compressed',
         'outputDir': 'assets/styles/'
@@ -76,9 +78,9 @@ Metalsmith(__dirname) //jshint ignore:line
     .use(autoprefixer())
     .use(concat({
         'files': [
-            'assets/vendor/jquery/jquery.js',
-            'assets/vendor/EventBus/dist/EventBus.js',
-            'assets/vendor/basejs/build/base.js',
+            'assets/scripts/vendor/jquery/jquery.js',
+            'assets/scripts/vendor/EventBus/EventBus.js',
+            'assets/scripts/vendor/basejs/base.js',
             'assets/scripts/config.js',
             'assets/scripts/shim.js',
             'assets/scripts/models/BaseModel.js',
@@ -94,12 +96,10 @@ Metalsmith(__dirname) //jshint ignore:line
     .use(uglify({
         'filter': [
             'assets/scripts/main.js',
-            'assets/vendor/modernizr/modernizr.js'
+            'assets/scripts/vendor/modernizr/modernizr.js'
         ],
         'removeOriginal': true
     }))
-    .source('./src')
-    .destination('./build')
     .build(function(err, files) {
         if (err) { throw err; } // jshint ignore:line
     });

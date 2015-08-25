@@ -2,10 +2,15 @@ var NRD = window.NRD || {};
 
 NRD.config = { // jshint ignore:line
     'breakpoints': {
+        'large': {
+            'media': 'screen',
+            'arguments': '(min-width: 1000px)',
+            'width': 1000
+        },
         'medium': {
             'media': 'screen',
-            'arguments': '(min-width: 750px)',
-            'width': 750
+            'arguments': '(min-width: 700px)',
+            'width': 700
         },
         'small': {
             'media': 'screen',

@@ -2,21 +2,22 @@
 
 <div class="wrapper">
     <section class="content">
-        <ol class="cols">
+        <h1 class="isVisuallyHidden">Brian Bell: Blog Posts</h1>
+        <ol class="blocks mix-blocks_2upMD mix-blocks_3upLG">
             {{#each collections.posts}}
-                <li class="cols-item">
+                <li>
                     <div class="post post_snippet">
                         <div class="post-md">
-                            <img src="{{this.featured-image}}" alt="">
+                            <img src="{{this.image-snippet}}" alt="{{ this.image-featured-alt }}">
                         </div>
-                        <div class="post-bd">
-                            <div class="post-bd-title">
-                                <h2 class="hdg hdg_h2"><a href="/{{this.path}}/">{{this.title}}</a></h2>
+                        <div class="post-content">
+                            <div class="post-content-hd">
+                                <h2 class="hdg hdg_h4"><a href="/{{this.path}}/">{{this.title}}</a></h2>
                             </div>
-                            <div class="post-bd-meta">
-                                <time datetime="2011-01-12">{{ formatDisplayDate this.date }}</time>
+                            <div class="post-content-meta">
+                                <time datetime="">{{ formatDisplayDate this.date }}</time>
                             </div>
-                            <div class="post-bd-content">
+                            <div class="post-content-bd">
                                 {{{this.snippet}}}
                             </div>
                         </div>
