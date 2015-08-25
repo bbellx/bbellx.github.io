@@ -21,3 +21,5 @@ This site is deployed to bbellx.github.io
         ./deploy.sh
 
 5. Verify a successful deployment by visiting [github](https://github.com/bbellx/bbellx.github.io) and selecting the master branch.
+
+6. Verify http://brianbell.me has been updated.
