@@ -1,0 +1,312 @@
+<!doctype html>
+<html class="no-js" lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--[if IE]><meta http-equiv="cleartype" content="on" /><![endif]-->    <title>Responsive Blocks Built with Sass | brianbell.me</title>
+    <meta name="description" content="Generate a responsive &quot;blocks&quot; object using Sass." />
+    <meta name="author" content="" />    <link rel="apple-touch-icon" sizes="57x57" href="/assets/media/images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/media/images/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/media/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/media/images/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/media/images/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/media/images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/media/images/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/media/images/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/media/images/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/media/images/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="/assets/media/images/favicon-160x160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/media/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/media/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/media/images/favicon-16x16.png">
+    <meta name="msapplication-TileImage" content="/assets/media/images/mstile-144x144.png">
+    <meta name="msapplication-TileColor" content="#ff0000">    <!-- POLYFILLS -->
+    <script type="text/javascript" src="/assets/scripts/vendor/modernizr/modernizr.min.js"></script>
+    <link rel="stylesheet" media="screen, projection" href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' />
+    <link rel="stylesheet" media="screen, projection" href="/assets/styles/modern.css" /></head>
+<body>
+    <div class="site">
+        <div class="site-hd">
+            <header class="tier tier_primary vr vr_3n" role="banner">
+                <div class="wrapper">
+                    <div class="siteTitle">
+                        <span class="siteTitle-name">Brian Bell</span>
+                    </div>
+                </div>            </header>
+        </div>
+        <div class="site-bd">
+            <main role="main" class="vr vr_3n">
+<div class="wrapper">
+    <section class="content">
+        <article class="post">
+            <div class="post-content">
+                <div class="post-content-hd">
+                    <h1 class="hdg hdg_h1">Responsive Blocks Built with Sass</h1>
+                </div>
+                <div class="post-content-meta">
+                    <time datetime="2011-01-12">Aug 24th 2015</time>
+                </div>
+                <div class="post-content-bd">
+                    <div class="quarantine">
+                        <p>Generate a responsive <code>.blocks</code> object using Sass. Optionally generate mixins to change the layout at different breakpoints.</p>
+<h2 id="rendered-example">Rendered Example</h2>
+<div class="renderSample">
+    <ul class="blocks blocks_2up mix-blocks_3upMD">
+        <li>
+            <div class="swatch">Block</div>
+        </li>
+        <li>
+            <div class="swatch">Block</div>
+        </li>
+        <li>
+            <div class="swatch">Block</div>
+        </li>
+        <li>
+            <div class="swatch">Block</div>
+        </li>
+        <li>
+            <div class="swatch">Block</div>
+        </li>
+        <li>
+            <div class="swatch">Block</div>
+        </li>
+    </ul>
+</div>
+
+<h2 id="the-markup">The Markup</h2>
+<p>The markup is a simple list. Include the base object <code>blocks</code>, then add an extension and/or mixins as needed to create the desired responsive layout.</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"blocks blocks_2up mix-blocks_3upMD"</span>&gt;</span>
+    ...
+<span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span></code></pre>
+
+<h2 id="folder-structure">Folder Structure</h2>
+<p>Use whatever folder structure you want. The example follows this structure:</p>
+<pre><code class="hljs"><span class="hljs-comment">// The folder structure</span>
+
+└── blocks
+    ├── _blocks<span class="hljs-class">.scss</span>
+    ├── _blocks_md<span class="hljs-class">.scss</span>
+    └── _helpers.scss</code></pre>
+
+<h2 id="the-sass">The Sass</h2>
+<p>Start with the <code>_helpers.scss</code> file:</p>
+<h3 id="object-helpers">Object Helpers</h3>
+<pre><code class="hljs scss"><span class="hljs-comment">// ---------------------------------------------------------------------</span>
+<span class="hljs-comment">// Helpers</span>
+<span class="hljs-comment">// ---------------------------------------------------------------------</span>
+
+<span class="hljs-comment">// Define Variable Defaults</span>
+
+<span class="hljs-comment">// Viewport width in pixels (unitless)</span>
+<span class="hljs-comment">// This value is only used to generate the percentages</span>
+<span class="hljs-variable">$blocks-WIDTH</span><span class="hljs-value">: <span class="hljs-number">960</span> !default;</span>
+
+<span class="hljs-comment">// Desired gutter width in pixels (unitless)</span>
+<span class="hljs-comment">// This value is only used to generate the percentages</span>
+<span class="hljs-variable">$blocks-GUTTER_WIDTH</span><span class="hljs-value">: <span class="hljs-number">12</span> !default;</span>
+
+<span class="hljs-comment">// A comma-separated Sass list of variations to create (number of blocks in each row)</span>
+<span class="hljs-variable">$blocks-ITERATIONS</span><span class="hljs-value">: null !default;</span>
+
+<span class="hljs-comment">// Default calculated gutter</span>
+<span class="hljs-variable">$blocks-GUTTER</span><span class="hljs-value">: <span class="hljs-number">0</span> !default;</span>
+
+<span class="hljs-comment">// Calculations</span>
+
+<span class="hljs-comment">// Calculate the gutter percentage</span>
+<span class="hljs-at_rule">@<span class="hljs-keyword">if</span><span class="hljs-preprocessor"> unitless</span>(<span class="hljs-variable">$blocks-GUTTER_WIDTH</span>)<span class="hljs-preprocessor"> and</span> (<span class="hljs-variable">$blocks-GUTTER_WIDTH</span> &gt;<span class="hljs-preprocessor"> 0</span>) {</span>
+    <span class="hljs-variable">$blocks-GUTTER</span><span class="hljs-value">: <span class="hljs-function">percentage</span>(<span class="hljs-variable">$blocks-GUTTER_WIDTH</span> / <span class="hljs-variable">$blocks-WIDTH</span>);</span>
+} <span class="hljs-at_rule">@<span class="hljs-keyword">else</span> {</span>
+    <span class="hljs-at_rule">@<span class="hljs-keyword">warn</span> <span class="hljs-string">"The value for $blocks-GUTTER_WIDTH must be unitless and greater than zero."</span>;</span>
+    <span class="hljs-variable">$blocks-GUTTER</span><span class="hljs-value">: <span class="hljs-number">0</span>;</span>
+}
+
+<span class="hljs-comment">// Blocks generator</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// $n number of blocks (integer)</span>
+<span class="hljs-comment">// $g gutter width (percentage)</span>
+<span class="hljs-at_rule">@<span class="hljs-keyword">mixin</span><span class="hljs-preprocessor"> blocks</span>(<span class="hljs-variable">$n</span>, <span class="hljs-variable">$g</span>) {</span>
+    <span class="hljs-attribute">width</span><span class="hljs-value">: (<span class="hljs-number">100%</span> - (<span class="hljs-variable">$n</span> * <span class="hljs-variable">$g</span>)) / <span class="hljs-variable">$n</span>;</span>
+}
+
+<span class="hljs-comment">// Get parent container offset</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// When dealing with percentage-based fluid containers and children,</span>
+<span class="hljs-comment">// the parent offset is not simply the gutter of the children set as</span>
+<span class="hljs-comment">// a negative margin on the parent. Because the width of the child</span>
+<span class="hljs-comment">// elements plus the total number of gutters determine the total width</span>
+<span class="hljs-comment">// of the parent object, a calculation must be made to derive the same</span>
+<span class="hljs-comment">// offset for the parent and children.</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// ((parent * gutter) / (parent - gutter)) * -1</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// $g desired gutter width (percentage)</span>
+<span class="hljs-at_rule">@function<span class="hljs-preprocessor"> getParentOffset</span>(<span class="hljs-variable">$g</span>) {</span>
+    <span class="hljs-at_rule">@<span class="hljs-keyword">if</span> <span class="hljs-variable">$g</span> &lt;=<span class="hljs-preprocessor"> 0</span> {</span>
+        <span class="hljs-at_rule">@return<span class="hljs-preprocessor"> 0</span>;</span>
+    } <span class="hljs-at_rule">@<span class="hljs-keyword">else</span> {</span>
+        <span class="hljs-at_rule">@return ((<span class="hljs-number">100%</span> * <span class="hljs-variable">$g</span>) / (<span class="hljs-number">100%</span><span class="hljs-preprocessor"> -</span> <span class="hljs-variable">$g</span>)) *<span class="hljs-preprocessor"> -1</span>;</span>
+    }
+}</code></pre>
+
+<h3 id="define-base-object">Define Base Object</h3>
+<p>Next, import the <code>_helpers.scss</code> file into your object file, <code>_blocks.scss</code>. Make sure to override any of the configuration variables above the <code>@import</code>:</p>
+<pre><code class="hljs scss"><span class="hljs-comment">// ---------------------------------------------------------------------</span>
+<span class="hljs-comment">// Blocks</span>
+<span class="hljs-comment">// ---------------------------------------------------------------------</span>
+
+<span class="hljs-comment">// Override defaults as desired</span>
+<span class="hljs-variable">$blocks-ITERATIONS</span><span class="hljs-value">: <span class="hljs-number">2</span>, <span class="hljs-number">3</span>;</span>
+
+<span class="hljs-comment">// Import calculation and function helpers</span>
+<span class="hljs-at_rule">@<span class="hljs-keyword">import</span> <span class="hljs-string">"_helpers"</span>;</span>
+
+<span class="hljs-class">.blocks</span> {
+    <span class="hljs-attribute">font-size</span><span class="hljs-value">: <span class="hljs-number">0</span>;</span> <span class="hljs-comment">// Remove whitespace between inline-block children</span>
+    <span class="hljs-attribute">margin-left</span><span class="hljs-value">: <span class="hljs-function">getParentOffset</span>(<span class="hljs-variable">$blocks-GUTTER</span>);</span>
+    <span class="hljs-attribute">margin-top</span><span class="hljs-value">: <span class="hljs-function">getParentOffset</span>(<span class="hljs-variable">$blocks-GUTTER</span>);</span>
+}
+
+<span class="hljs-class">.blocks</span> &gt; * {
+    <span class="hljs-attribute">display</span><span class="hljs-value">: inline-block;</span>
+    <span class="hljs-attribute">vertical-align</span><span class="hljs-value">: top;</span>
+    <span class="hljs-at_rule">@<span class="hljs-keyword">include</span><span class="hljs-preprocessor"> blocks</span>(<span class="hljs-number">1</span>, <span class="hljs-variable">$blocks-GUTTER</span>);</span>
+    <span class="hljs-attribute">margin-left</span><span class="hljs-value">: <span class="hljs-variable">$blocks-GUTTER</span>;</span>
+    <span class="hljs-attribute">margin-top</span><span class="hljs-value">: <span class="hljs-variable">$blocks-GUTTER</span>;</span>
+    <span class="hljs-attribute">font-size</span><span class="hljs-value">: <span class="hljs-number">14px</span>;</span> <span class="hljs-comment">// Reset font-size of children</span>
+}
+
+<span class="hljs-at_rule">@<span class="hljs-keyword">if</span> <span class="hljs-variable">$blocks-ITERATIONS</span> {</span>
+    <span class="hljs-at_rule">@<span class="hljs-keyword">for</span> <span class="hljs-variable">$i</span><span class="hljs-preprocessor"> from</span><span class="hljs-preprocessor"> 1</span><span class="hljs-preprocessor"> through</span><span class="hljs-preprocessor"> length</span>(<span class="hljs-variable">$blocks-ITERATIONS</span>) {</span>
+
+        <span class="hljs-comment">// Select an item by index from the iterations list</span>
+        <span class="hljs-variable">$n</span><span class="hljs-value">: <span class="hljs-function">nth</span>(<span class="hljs-variable">$blocks-ITERATIONS</span>, <span class="hljs-variable">$i</span>);</span>
+
+        <span class="hljs-class">.blocks_</span>#{<span class="hljs-variable">$n</span>}up &gt; * {
+            <span class="hljs-at_rule">@<span class="hljs-keyword">include</span><span class="hljs-preprocessor"> blocks</span>(<span class="hljs-variable">$n</span>, <span class="hljs-variable">$blocks-GUTTER</span>);</span>
+        }
+    }
+}</code></pre>
+
+<h3 id="extend-the-object">Extend the Object</h3>
+<p>Optionally, extend this object across breakpoints to adjust the layout at each viewport by resetting the variables and generating mixins. For example, load <code>_blocks_md.scss</code> using a media query at your medium breakpoint.</p>
+<pre><code class="hljs scss"><span class="hljs-comment">// ---------------------------------------------------------------------</span>
+<span class="hljs-comment">// Blocks (loaded at medium breakpoint)</span>
+<span class="hljs-comment">// ---------------------------------------------------------------------</span>
+
+<span class="hljs-comment">// Override variables as desired</span>
+<span class="hljs-variable">$blocks-WIDTH</span><span class="hljs-value">: <span class="hljs-number">600</span>;</span>
+<span class="hljs-variable">$blocks-GUTTER_WIDTH</span><span class="hljs-value">: <span class="hljs-number">20</span>;</span>
+<span class="hljs-variable">$blocks-ITERATIONS</span><span class="hljs-value">: <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>;</span>
+
+<span class="hljs-comment">// Import calculation and function helpers</span>
+<span class="hljs-at_rule">@<span class="hljs-keyword">import</span> <span class="hljs-string">"_helpers"</span>;</span>
+
+<span class="hljs-comment">// Rebuild object with new measurements</span>
+<span class="hljs-class">.blocks</span> {
+    <span class="hljs-attribute">margin-left</span><span class="hljs-value">: <span class="hljs-function">getParentOffset</span>(<span class="hljs-variable">$blocks-GUTTER</span>);</span>
+    <span class="hljs-attribute">margin-top</span><span class="hljs-value">: <span class="hljs-function">getParentOffset</span>(<span class="hljs-variable">$blocks-GUTTER</span>);</span>
+}
+
+<span class="hljs-class">.blocks</span> &gt; * {
+    <span class="hljs-attribute">margin-left</span><span class="hljs-value">: <span class="hljs-variable">$blocks-GUTTER</span>;</span>
+    <span class="hljs-attribute">margin-top</span><span class="hljs-value">: <span class="hljs-variable">$blocks-GUTTER</span>;</span>
+}
+
+<span class="hljs-at_rule">@<span class="hljs-keyword">if</span> <span class="hljs-variable">$blocks-ITERATIONS</span> {</span>
+    <span class="hljs-at_rule">@<span class="hljs-keyword">for</span> <span class="hljs-variable">$i</span><span class="hljs-preprocessor"> from</span><span class="hljs-preprocessor"> 1</span><span class="hljs-preprocessor"> through</span><span class="hljs-preprocessor"> length</span>(<span class="hljs-variable">$blocks-ITERATIONS</span>) {</span>
+
+        <span class="hljs-comment">// Select an item by index from the iterations list</span>
+        <span class="hljs-variable">$n</span><span class="hljs-value">: <span class="hljs-function">nth</span>(<span class="hljs-variable">$blocks-ITERATIONS</span>, <span class="hljs-variable">$i</span>);</span>
+
+        <span class="hljs-comment">// Rebuild the object extensions with new measurements</span>
+        <span class="hljs-class">.blocks_</span>#{<span class="hljs-variable">$n</span>}up &gt; * {
+            <span class="hljs-at_rule">@<span class="hljs-keyword">include</span><span class="hljs-preprocessor"> blocks</span>(<span class="hljs-variable">$n</span>, <span class="hljs-variable">$blocks-GUTTER</span>);</span>
+        }
+
+        <span class="hljs-comment">// Generate mixins to be applied at the breakpoint</span>
+        <span class="hljs-class">.mix-blocks_</span>#{<span class="hljs-variable">$n</span>}upMD &gt; * {
+            <span class="hljs-at_rule">@<span class="hljs-keyword">include</span><span class="hljs-preprocessor"> blocks</span>(<span class="hljs-variable">$n</span>, <span class="hljs-variable">$blocks-GUTTER</span>);</span>
+        }
+    }
+}</code></pre>
+
+<h2 id="compiled-css">Compiled CSS</h2>
+<p>Once compiled by Sass, the resulting CSS will look like this:</p>
+<pre><code class="hljs css"><span class="hljs-class">.blocks</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">font-size</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">margin-left</span>:<span class="hljs-value"> -<span class="hljs-number">1.26582%</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">margin-top</span>:<span class="hljs-value"> -<span class="hljs-number">1.26582%</span></span></span>;
+<span class="hljs-rule">}</span></span>
+
+<span class="hljs-class">.blocks</span> &gt; * <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> inline-block</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">vertical-align</span>:<span class="hljs-value"> top</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">98.75%</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">margin-left</span>:<span class="hljs-value"> <span class="hljs-number">1.25%</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">margin-top</span>:<span class="hljs-value"> <span class="hljs-number">1.25%</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">font-size</span>:<span class="hljs-value"> <span class="hljs-number">14px</span></span></span>;
+<span class="hljs-rule">}</span></span>
+
+<span class="hljs-class">.blocks_2up</span> &gt; * <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">48.75%</span></span></span>;
+<span class="hljs-rule">}</span></span>
+
+<span class="hljs-class">.blocks_3up</span> &gt; * <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">32.08333%</span></span></span>;
+<span class="hljs-rule">}</span></span>
+
+<span class="hljs-at_rule">@<span class="hljs-keyword">media</span> screen and (min-width: <span class="hljs-number">600px</span>) </span>{
+    <span class="hljs-class">.blocks</span> <span class="hljs-rules">{
+        <span class="hljs-rule"><span class="hljs-attribute">margin-left</span>:<span class="hljs-value"> -<span class="hljs-number">3.44828%</span></span></span>;
+        <span class="hljs-rule"><span class="hljs-attribute">margin-top</span>:<span class="hljs-value"> -<span class="hljs-number">3.44828%</span></span></span>;
+    <span class="hljs-rule">}</span></span>
+
+    <span class="hljs-class">.blocks</span> &gt; * <span class="hljs-rules">{
+        <span class="hljs-rule"><span class="hljs-attribute">margin-left</span>:<span class="hljs-value"> <span class="hljs-number">3.33333%</span></span></span>;
+        <span class="hljs-rule"><span class="hljs-attribute">margin-top</span>:<span class="hljs-value"> <span class="hljs-number">3.33333%</span></span></span>;
+    <span class="hljs-rule">}</span></span>
+
+    <span class="hljs-class">.blocks_2up</span> &gt; * <span class="hljs-rules">{
+        <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">46.66667%</span></span></span>;
+    <span class="hljs-rule">}</span></span>
+
+    <span class="hljs-class">.mix-blocks_2upMD</span> &gt; * <span class="hljs-rules">{
+        <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">46.66667%</span></span></span>;
+    <span class="hljs-rule">}</span></span>
+
+    <span class="hljs-class">.blocks_3up</span> &gt; * <span class="hljs-rules">{
+        <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">30%</span></span></span>;
+    <span class="hljs-rule">}</span></span>
+
+    <span class="hljs-class">.mix-blocks_3upMD</span> &gt; * <span class="hljs-rules">{
+        <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">30%</span></span></span>;
+    <span class="hljs-rule">}</span></span>
+
+    <span class="hljs-class">.blocks_4up</span> &gt; * <span class="hljs-rules">{
+        <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">21.66667%</span></span></span>;
+    <span class="hljs-rule">}</span></span>
+
+    <span class="hljs-class">.mix-blocks_4upMD</span> &gt; * <span class="hljs-rules">{
+        <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">21.66667%</span></span></span>;
+    <span class="hljs-rule">}</span></span>
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+</div>
+
+            </main>
+        </div>
+        <!-- <div class="site-ft">
+            <footer role="contentinfo" class="tier tier_secondary">
+                <div class="footer">
+
+                </div>
+            </footer>
+        </div> -->
+    </div>
+    <script src="/assets/scripts/main.min.js"></script></body>
+</html>
