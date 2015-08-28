@@ -1,3 +1,39 @@
+---
+title: Sass Vertical Rhythm with Magnitude
+collection: posts
+date: 2015-08-28
+template: post.html
+seo-description:
+snippet:
+image-snippet:
+---
+
+
+
+## Rendered Example
+
+<div class="renderSample">
+    <div class="vr">
+        <div class="swatch">vr</div>
+    </div>
+    <div class="vr_2n">
+        <div class="swatch">vr_2n</div>
+    </div>
+    <div class="vr_3n">
+        <div class="swatch">vr_3n</div>
+    </div>
+    <div class="vr_4n">
+        <div class="swatch">vr_4n</div>
+    </div>
+    <div class="vr_5n">
+        <div class="swatch">vr_5n</div>
+    </div>
+    <div class="vr_6n">
+        <div class="swatch">vr_6n</div>
+    </div>
+</div>
+
+```scss
 // ---------------------------------------------------------------------
 // Vertical Rhythm
 // ---------------------------------------------------------------------
@@ -38,3 +74,13 @@ $vr-ITERATIONS: 1 !default; // (unitless) Number of variations to generate
         }
     }
 }
+```
+
+```scss
+// Vertical Rhythm Configuration Variables
+$vr-BASE: 2; // (unitless) Base measurement
+$vr-MAGNITUDE: 0.5; // (unitless) The spacing multiplier
+$vr-ITERATIONS: 6; // (unitless) Number of variations to generate
+
+@import "_helpers";
+```
