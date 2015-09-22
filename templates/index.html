@@ -1,30 +1,22 @@
 {{> header}}
 
 <div class="wrapper">
-    <section class="content">
-        <h1 class="isVisuallyHidden">Brian Bell: Blog Posts</h1>
-        <ol class="blocks mix-blocks_2upMD mix-blocks_3upLG">
-            {{#each collections.posts}}
-                <li>
-                    <div class="post post_snippet">
-                        <div class="post-md">
-                            <img src="{{this.image-snippet}}" alt="{{ this.image-featured-alt }}">
-                        </div>
-                        <div class="post-content">
-                            <div class="post-content-hd">
-                                <h2 class="hdg hdg_h4"><a href="/{{this.path}}/">{{this.title}}</a></h2>
-                            </div>
-                            <div class="post-content-meta">
-                                <time datetime="">{{ formatDisplayDate this.date }}</time>
-                            </div>
-                            <div class="post-content-bd">
-                                {{{this.snippet}}}
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            {{/each}}
-        </ol>
+    <section class="content content_flex">
+        <div class="profile">
+            <div class="profile-md">
+                <img class="profile-md-pic" src="assets/media/images/brian-bell-portrait.jpg" alt="Portrait of Brian Bell" />
+            </div>
+            <div class="profile-bd">
+                <h1 class="profile-bd-name">Brian Bell</h1>
+                <div class="profile-bd-contact">
+                    <h2 class="isVisuallyHidden">Contact Information</h2>
+                    <ul class="vList">
+                        <li>Principal Software Engineer, <a href="//nerdery.com/people#be" class="u-nowrap" title="Brian Bell Nerdery profile" target="_blank">The Nerdery</a></li>
+                        <li>Twitter: <a href="//twitter.com/bbellx" title="Brian Bell's Twitter account" target="_blank">@bbellx</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
 </div>
 

@@ -1,0 +1,22 @@
+<ol class="blocks mix-blocks_2upMD mix-blocks_3upLG">
+    {{#each collections.posts}}
+        <li>
+            <div class="post post_snippet">
+                <div class="post-md">
+                    <img src="{{this.image-snippet}}" alt="{{ this.image-featured-alt }}">
+                </div>
+                <div class="post-content">
+                    <div class="post-content-hd">
+                        <h2 class="hdg hdg_h4"><a href="/{{this.path}}/">{{this.title}}</a></h2>
+                    </div>
+                    <div class="post-content-meta">
+                        <time datetime="">{{ formatDisplayDate this.date }}</time>
+                    </div>
+                    <div class="post-content-bd">
+                        {{{this.snippet}}}
+                    </div>
+                </div>
+            </div>
+        </li>
+    {{/each}}
+</ol>
