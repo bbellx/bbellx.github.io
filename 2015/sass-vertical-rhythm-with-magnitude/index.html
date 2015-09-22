@@ -1,0 +1,146 @@
+<!doctype html>
+<html class="no-js" lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--[if IE]><meta http-equiv="cleartype" content="on" /><![endif]-->    <title>Sass Vertical Rhythm with Magnitude | brianbell.me</title>
+    <meta name="description" content="" />
+    <meta name="author" content="" />    <link rel="apple-touch-icon" sizes="57x57" href="/assets/media/images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/media/images/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/media/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/media/images/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/media/images/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/media/images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/media/images/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/media/images/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/media/images/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/media/images/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="/assets/media/images/favicon-160x160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/media/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/media/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/media/images/favicon-16x16.png">
+    <meta name="msapplication-TileImage" content="/assets/media/images/mstile-144x144.png">
+    <meta name="msapplication-TileColor" content="#ff0000">    <!-- POLYFILLS -->
+    <script type="text/javascript" src="/assets/scripts/vendor/modernizr/modernizr.min.js"></script>
+    <link rel="stylesheet" media="screen, projection" href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' />
+    <link rel="stylesheet" media="screen, projection" href="/assets/styles/modern.css" /></head>
+<body>
+    <div class="site">
+        <div class="site-bd">
+            <main role="main" class="vr vr_3n">
+<div class="wrapper">
+    <section class="content">
+        <article class="post">
+            <div class="post-content">
+                <div class="post-content-hd">
+                    <h1 class="hdg hdg_h1">Sass Vertical Rhythm with Magnitude</h1>
+                </div>
+                <div class="post-content-meta">
+                    <time datetime="2011-01-12">Aug 27th 2015</time>
+                </div>
+                <div class="post-content-bd">
+                    <div class="quarantine">
+                        <h2 id="rendered-example">Rendered Example</h2>
+<div class="renderSample">
+    <div class="vr">
+        <div class="swatch">vr</div>
+    </div>
+    <div class="vr_2n">
+        <div class="swatch">vr_2n</div>
+    </div>
+    <div class="vr_3n">
+        <div class="swatch">vr_3n</div>
+    </div>
+    <div class="vr_4n">
+        <div class="swatch">vr_4n</div>
+    </div>
+    <div class="vr_5n">
+        <div class="swatch">vr_5n</div>
+    </div>
+    <div class="vr_6n">
+        <div class="swatch">vr_6n</div>
+    </div>
+</div>
+
+<pre><code class="hljs scss"><span class="hljs-comment">// ---------------------------------------------------------------------</span>
+<span class="hljs-comment">// Vertical Rhythm</span>
+<span class="hljs-comment">// ---------------------------------------------------------------------</span>
+<span class="hljs-variable">$vr-BASE</span><span class="hljs-value">: <span class="hljs-number">1</span> !default;</span> <span class="hljs-comment">// (unitless) Base measurement</span>
+<span class="hljs-variable">$vr-MAGNITUDE</span><span class="hljs-value">: <span class="hljs-number">1</span> !default;</span> <span class="hljs-comment">// (unitless) The spacing multiplier</span>
+<span class="hljs-variable">$vr-ITERATIONS</span><span class="hljs-value">: <span class="hljs-number">1</span> !default;</span> <span class="hljs-comment">// (unitless) Number of variations to generate</span>
+
+<span class="hljs-comment">// @return {Integer} converted to em units</span>
+<span class="hljs-at_rule">@function<span class="hljs-preprocessor"> vr</span>(<span class="hljs-variable">$b</span>: <span class="hljs-variable">$vr-BASE</span>) {</span>
+    <span class="hljs-at_rule">@<span class="hljs-keyword">if</span><span class="hljs-preprocessor"> unitless</span>(<span class="hljs-variable">$b</span>) ==<span class="hljs-preprocessor"> false</span> {</span>
+        <span class="hljs-at_rule">@<span class="hljs-keyword">warn</span> <span class="hljs-string">"$vr-BASE: #{$vr-BASE}; must be unitless."</span>;</span>
+        <span class="hljs-at_rule">@return<span class="hljs-preprocessor"> 0</span>;</span>
+    }
+
+    <span class="hljs-at_rule">@<span class="hljs-keyword">if</span> <span class="hljs-variable">$vr-MAGNITUDE</span> ==<span class="hljs-preprocessor"> null</span> {</span>
+        <span class="hljs-at_rule">@<span class="hljs-keyword">warn</span> <span class="hljs-string">"$vr-MAGNITUDE must be a non-negative number."</span>;</span>
+        <span class="hljs-at_rule">@return<span class="hljs-preprocessor"> 0</span>;</span>
+    }
+
+    <span class="hljs-at_rule">@<span class="hljs-keyword">if</span> <span class="hljs-variable">$b</span> !=<span class="hljs-preprocessor"> 0</span> {</span>
+        <span class="hljs-at_rule">@return <span class="hljs-variable">$b</span> * <span class="hljs-variable">$vr-MAGNITUDE</span> +<span class="hljs-preprocessor"> 0em</span>;</span>
+    } <span class="hljs-at_rule">@<span class="hljs-keyword">else</span> {</span>
+        <span class="hljs-at_rule">@return<span class="hljs-preprocessor"> 0</span>;</span>
+    }
+}
+
+<span class="hljs-comment">// The following classes can be re-generated across breakpoints.</span>
+<span class="hljs-comment">// This allows for a different magnitude of vertical space at certain viewport widths.</span>
+<span class="hljs-class">.vr</span> {
+    <span class="hljs-attribute">margin-bottom</span><span class="hljs-value">: <span class="hljs-function">vr</span>();</span>
+}
+
+<span class="hljs-comment">// Generate vertical rhythm extensions</span>
+<span class="hljs-at_rule">@<span class="hljs-keyword">if</span> <span class="hljs-variable">$vr-ITERATIONS</span> &gt;<span class="hljs-preprocessor"> 1</span> {</span>
+    <span class="hljs-at_rule">@<span class="hljs-keyword">for</span> <span class="hljs-variable">$i</span><span class="hljs-preprocessor"> from</span><span class="hljs-preprocessor"> 2</span><span class="hljs-preprocessor"> through</span> <span class="hljs-variable">$vr-ITERATIONS</span> {</span>
+        <span class="hljs-class">.vr_</span>#{<span class="hljs-variable">$i</span>}n {
+            <span class="hljs-attribute">margin-bottom</span><span class="hljs-value">: <span class="hljs-function">vr</span>(<span class="hljs-variable">$vr-BASE</span> * <span class="hljs-variable">$i</span>);</span>
+        }
+    }
+}</code></pre>
+
+<pre><code class="hljs scss"><span class="hljs-comment">// Vertical Rhythm Configuration Variables</span>
+<span class="hljs-variable">$vr-BASE</span><span class="hljs-value">: <span class="hljs-number">2</span>;</span> <span class="hljs-comment">// (unitless) Base measurement</span>
+<span class="hljs-variable">$vr-MAGNITUDE</span><span class="hljs-value">: <span class="hljs-number">0.5</span>;</span> <span class="hljs-comment">// (unitless) The spacing multiplier</span>
+<span class="hljs-variable">$vr-ITERATIONS</span><span class="hljs-value">: <span class="hljs-number">6</span>;</span> <span class="hljs-comment">// (unitless) Number of variations to generate</span>
+
+<span class="hljs-at_rule">@<span class="hljs-keyword">import</span> <span class="hljs-string">"_helpers"</span>;</span></code></pre>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+</div>
+
+            </main>
+        </div>
+        <!-- <div class="site-ft">
+            <footer role="contentinfo" class="tier tier_secondary">
+                <div class="footer">
+
+                </div>
+            </footer>
+        </div> -->
+    </div>
+    <script src="/assets/scripts/main.min.js"></script>
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-67906734-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+</body>
+</html>

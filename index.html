@@ -26,39 +26,25 @@
     <link rel="stylesheet" media="screen, projection" href="/assets/styles/modern.css" /></head>
 <body>
     <div class="site">
-        <div class="site-hd">
-            <header class="tier tier_primary vr vr_3n" role="banner">
-                <div class="wrapper">
-                    <div class="siteTitle">
-                        <span class="siteTitle-name">Brian Bell</span>
-                    </div>
-                </div>            </header>
-        </div>
         <div class="site-bd">
             <main role="main" class="vr vr_3n">
 <div class="wrapper">
-    <section class="content">
-        <h1 class="isVisuallyHidden">Brian Bell: Blog Posts</h1>
-        <ol class="blocks mix-blocks_2upMD mix-blocks_3upLG">
-                <li>
-                    <div class="post post_snippet">
-                        <div class="post-md">
-                            <img src="/assets/media/images/responsive-blocks-640x320.gif" alt="">
-                        </div>
-                        <div class="post-content">
-                            <div class="post-content-hd">
-                                <h2 class="hdg hdg_h4"><a href="/2015/responsive-blocks-built-with-sass/">Responsive Blocks Built with Sass</a></h2>
-                            </div>
-                            <div class="post-content-meta">
-                                <time datetime="">Aug 24th 2015</time>
-                            </div>
-                            <div class="post-content-bd">
-                                Generate a responsive "blocks" object using Sass.
-                            </div>
-                        </div>
-                    </div>
-                </li>
-        </ol>
+    <section class="content content_flex">
+        <div class="profile">
+            <div class="profile-md">
+                <img class="profile-md-pic" src="assets/media/images/brian-bell-portrait.jpg" alt="Portrait of Brian Bell" />
+            </div>
+            <div class="profile-bd">
+                <h1 class="profile-bd-name">Brian Bell</h1>
+                <div class="profile-bd-contact">
+                    <h2 class="isVisuallyHidden">Contact Information</h2>
+                    <ul class="vList">
+                        <li>Principal Software Engineer, <a href="//nerdery.com/people#be" class="u-nowrap" title="Brian Bell Nerdery profile" target="_blank">The Nerdery</a></li>
+                        <li>Twitter: <a href="//twitter.com/bbellx" title="Brian Bell's Twitter account" target="_blank">@bbellx</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
 </div>
 
@@ -72,5 +58,21 @@
             </footer>
         </div> -->
     </div>
-    <script src="/assets/scripts/main.min.js"></script></body>
+    <script src="/assets/scripts/main.min.js"></script>
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-67906734-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+</body>
 </html>
