@@ -36,7 +36,6 @@ pre {
     word-break: break-all;
     word-wrap: normal;
     overflow-x: auto;
-    @include typeset($monospace, 14px, 20px, $leader: 0, $trailer: 2);
 }
 
 code {
@@ -54,7 +53,7 @@ pre code {
     padding: 0;
     background-color: transparent;
     border: none;
-    font-size: inherit;
     color: inherit;
     border-radius: 0;
+    @include typeset($monospace, 14px, 20px, $leader: 0, $trailer: 0, $snap: true);
 }
