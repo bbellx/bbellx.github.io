@@ -1,7 +1,5 @@
 .site-bd {
     position: relative;
-    padding-top: 4rem;
-    border-top: 4px solid #e97e24;
 }
 
 .site-bd:before {
@@ -12,4 +10,14 @@
     width: 100%;
     height: 2rem;
     background-color: #ee9952;
+}
+
+.site-bd:after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #e97e24;
 }

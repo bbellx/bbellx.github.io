@@ -1,0 +1,25 @@
+{
+  "name": "brianbell.me",
+  "main": "main.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/bbellx/bbellx.github.io",
+  "authors": [
+    "Brian Bell <bbellx@me.com>"
+  ],
+  "description": "The personal site of Brian Bell",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "megatype": "~1.0.1"
+  }
+}

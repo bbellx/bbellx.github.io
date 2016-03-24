@@ -1,24 +1,23 @@
 .hdg {
-    font-weight: inherit;
-    line-height: 1.2;
+
 }
 
-.hdg_h1 {
-  font-size: 3.157em;
+// We can set our type using pixels, rems or baseline units
+.hdg_h1,
+.quarantine h1 {
+    @include typeset($font: $sans, $fontsize: 38px, $lineheight: 45px, $leader: 2, $trailer: 2rem);
 }
 
-.hdg_h2 {
-    font-size: 2.369em;
+.hdg_h2,
+.quarantine h2 {
+    @include typeset($serif, 26px, 28px, 2, 1);
 }
 
-.hdg_h3 {
-    font-size: 1.777em;
+.hdg_h3,
+.quarantine h3 {
+    @include typeset($serif, 20px, 24px, 2, 1);
 }
 
-.hdg_h4 {
-    font-size: 1.333em;
-}
-
-.hdg_h5 {
-    font-size: 0.75em;
+.post-content-meta {
+    @include typeset($serif, 16px, 18px, 0, 2);
 }

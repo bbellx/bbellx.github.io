@@ -1,0 +1,8 @@
+// MegaType
+@import "./bower_components/megatype/megatype";
+@import "helpers/_megaTypeConfig";
+
+$debug-allow: true;
+// $baseline-scaling: true;
+
+@include megatype;

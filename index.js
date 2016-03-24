@@ -73,6 +73,8 @@ Metalsmith(__dirname) //jshint ignore:line
             'assets/styles/'
         ],
         'outputStyle': 'compressed',
+        // 'sourceMap': true,
+        // 'sourceMapContents': true,
         'outputDir': 'assets/styles/'
     }))
     .use(autoprefixer())
@@ -91,11 +93,11 @@ Metalsmith(__dirname) //jshint ignore:line
             'assets/scripts/App.js',
             'assets/scripts/main.js'
         ],
-        'output': 'assets/scripts/main.js'
+        'output': 'assets/scripts/index.js'
     }))
     .use(uglify({
         'filter': [
-            'assets/scripts/main.js',
+            'assets/scripts/index.js',
             'assets/scripts/vendor/modernizr/modernizr.js'
         ],
         'removeOriginal': true
