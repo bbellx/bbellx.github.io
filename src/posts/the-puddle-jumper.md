@@ -44,7 +44,7 @@ Oh, and splash hard. Puddle jumping is no fun if you're cautious.
 
 Finally, EXPLORE.
 
-This can take years. There are no instructions here&mdash;you actually get to write them yourself. You are forming new opinions of the world and discovering something about yourself, and those are important to share. This step is key, the only way a Puddle Jumper improves him or herself is to take this part very seriously.
+This can take years. There are no instructions here&mdash;you actually get to write them yourself. You are forming new opinions of the world and discovering something about yourself, and those are important revelations to share. This step is key, the only way a Puddle Jumper improves him or herself is to take this part very seriously.
 
 Discover. Reflect. Understand.
 
